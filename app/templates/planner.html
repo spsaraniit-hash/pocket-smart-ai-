@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} | PocketSmart AI{% endblock %}
+
+{% block content %}
+<section class="planner-header">
+  <p class="eyebrow">POCKETSMART AI</p>
+  <h1>{{ title }}</h1>
+  <p>Enter your requirements and let the recommendation engine create a budget-aware plan.</p>
+</section>
+
+<section class="planner-layout">
+  <form id="plannerForm" class="form-card">
+    <input type="hidden" id="planner" value="{{ planner }}">
+
+    <label>Total budget (₹)</label>
+    <input id="budget" type="number" min="1" step="1" placeholder="e.g. 50000" required>
+
+    {% if planner == "home" %}
+      <label>Room type</label>
+      <select id="room_type">
+        <option>Living Room</option>
+        <option>Bedroom</option>
+        <option>Kitchen</option>
+        <option>Multiple Rooms</option>
+      </select>
+      <label>Style preference</label>
+      <input id="style" placeholder="e.g. modern, minimal">
+      <label>Important items</label>
+      <input id="items" placeholder="e.g. fan, lights, dining table">
+
+    {% elif planner == "party" %}
+      <label>Event type</label>
+      <select id="event_type">
+        <option>Birthday</option>
+        <option>Wedding</option>
+        <option>Corporate</option>
+        <option>Family Event</option>
+      </select>
+      <label>Guest count</label>
+      <input id="guests" type="number" min="1" placeholder="e.g. 50">
+      <label>Venue details</label>
+      <input id="venue" placeholder="e.g. indoor hall">
+
+    {% else %}
+      <label>Occasion</label>
+      <select id="occasion">
+        <option>Wedding</option>
+        <option>Birthday</option>
+        <option>Festival</option>
+        <option>Formal Event</option>
+      </select>
+      <label>Style preference</label>
+      <input id="jewelry_style" placeholder="e.g. simple, traditional">
+      <label>Upload outfit image (optional)</label>
+      <input id="outfit" type="file" accept="image/png,image/jpeg,image/webp">
+      <small>Image is stored locally in this demo project; it is not sent to Gemini.</small>
+    {% endif %}
+
+    <button class="primary-btn" type="submit">Generate Recommendations</button>
+    <p id="status" class="status"></p>
+  </form>
+
+  <section id="results" class="results-card">
+    <div class="empty-state">
+      <div class="big-icon">✨</div>
+      <h2>Your recommendations will appear here</h2>
+      <p>Submit your budget and requirements to generate a plan.</p>
+    </div>
+  </section>
+</section>
+{% endblock %}
