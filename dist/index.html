@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}PocketSmart AI | Smart Budget Assistant{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">GENAI-POWERED BUDGET PLANNING</p>
+    <h1>Plan your budget.<br><span>Spend smarter.</span></h1>
+    <p class="hero-copy">
+      PocketSmart AI turns your budget, preferences and event needs into
+      practical recommendations and category-wise allocations.
+    </p>
+  </div>
+  <div class="hero-card">
+    <div class="wallet-icon">₹</div>
+    <h3>Smart Budget Engine</h3>
+    <p>Gemini-powered recommendations with a demo fallback for development.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading">
+    <p class="eyebrow">CHOOSE A PLANNER</p>
+    <h2>What are you planning?</h2>
+  </div>
+
+  <div class="grid-3">
+    <a class="planner-card" href="/planner/home">
+      <div class="card-icon">🏠</div>
+      <h3>Home Interior</h3>
+      <p>Allocate your budget across furniture, lighting, appliances and decor.</p>
+      <span>Open planner →</span>
+    </a>
+
+    <a class="planner-card" href="/planner/party">
+      <div class="card-icon">🎉</div>
+      <h3>Party Planner</h3>
+      <p>Plan catering, decoration, entertainment and venue-related costs.</p>
+      <span>Open planner →</span>
+    </a>
+
+    <a class="planner-card" href="/planner/jewelry">
+      <div class="card-icon">💎</div>
+      <h3>Jewelry Planner</h3>
+      <p>Get occasion and style-aware jewelry suggestions within your budget.</p>
+      <span>Open planner →</span>
+    </a>
+  </div>
+</section>
+
+<section class="architecture">
+  <div>
+    <p class="eyebrow">SYSTEM FLOW</p>
+    <h2>Simple architecture, ready to extend</h2>
+    <p>User input → FastAPI → Budget allocation → Gemini → Recommendation cards</p>
+  </div>
+  <div class="flow">
+    <span>UI</span><b>→</b><span>FastAPI</span><b>→</b><span>Gemini</span><b>→</b><span>Results</span>
+  </div>
+</section>
+{% endblock %}
